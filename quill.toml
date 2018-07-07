@@ -1,0 +1,23 @@
+[project]
+default_font = "GloriaHallelujah"
+
+[paths]
+assets = "assets"
+templates = "templates"
+runner = "runner.lua"
+runner_win = ""
+runner_ipc = "runner.ipc"
+
+[output]
+binary = "gui.bin"
+assets = "gui_assets.bin"
+sourcexml = ""
+identifiers_csv = ""
+identifiers_c = ""
+identifiers_cs = ""
+identifiers_java = ""
+identifiers_rust = ""
+
+[runner]
+window_width = "800"
+window_height = "600"

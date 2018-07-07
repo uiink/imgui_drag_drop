@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template uid="5491785394352992306" name="Filter Search" version="9" processing="true">
+  <input name="name" type="string" default=""/>
+  <input name="search" type="string" default=""/>
+  <view uid="0" name="Filter Search"/>
+  <node uid="5091371240884579677" type="discard" x="612" y="200">
+    <sysinput name="discard">
+      <nodesys node="9455476130862976589" name="NOT"/>
+    </sysinput>
+  </node>
+  <node uid="8296091622496622429" type="string_search" x="199" y="165">
+    <sysinput name="needle">
+      <tplusr name="search"/>
+    </sysinput>
+    <sysinput name="haystack">
+      <tplusr name="name"/>
+    </sysinput>
+    <option name="case_sensitive" type="bool" value="F"/>
+  </node>
+  <node uid="9455476130862976589" type="not" x="471" y="220">
+    <sysinput name="A">
+      <nodesys node="8296091622496622429" name="found"/>
+    </sysinput>
+  </node>
+  <preview/>
+  <metadata preview_w="700" preview_h="600" preview_zoom="1" preview_padding="0" preview_bg_color="255"/>
+</template>

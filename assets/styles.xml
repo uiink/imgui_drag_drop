@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<styleset>
+  <prop name="Light" type="color" value="0x60BEFEFF"/>
+  <prop name="Normal" type="color" value="0x0085E2FF"/>
+</styleset>

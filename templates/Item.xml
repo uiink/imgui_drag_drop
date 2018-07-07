@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template uid="1156732126394968629" name="Item" version="9">
+  <input name="Disable Drag" type="bool" default="F"/>
+  <input name="category" type="string" default=""/>
+  <input name="equipped" type="bool" default="F"/>
+  <input name="icon" type="image" default=""/>
+  <input name="label_image" type="image" default=""/>
+  <input name="name" type="string" default=""/>
+  <input name="slot" type="int" default="0"/>
+  <view uid="0" name="Item">
+    <view uid="4082452667607834798" name="Drag Area"/>
+    <view uid="2085719512096619996" name="Event Area"/>
+    <view uid="7099502017543634406" name="whiteout"/>
+    <view uid="6399619520615676263" name="VBox">
+      <view uid="164880213109468472" name="Icon">
+        <view uid="1820181022363494488" name="Name"/>
+      </view>
+      <view uid="7036711138822283262" name="Equipped Badge"/>
+    </view>
+  </view>
+  <events view="2085719512096619996">
+    <pointer pointer="Mouse Left" state="Up" id="0" captures="true">
+      <nodesys node="5999715810530494905" name="impulse"/>
+    </pointer>
+  </events>
+  <viewprops view="0">
+    <prop name="layer" value="0"/>
+    <prop name="matchChildrenHeight" value="T"/>
+    <prop name="matchChildrenWidth" value="T"/>
+    <prop name="siteAnimationDistance" value="0"/>
+    <prop name="translateX">
+      <nodesys node="985535400526005" name="x"/>
+    </prop>
+    <prop name="translateY">
+      <nodesys node="985535400526005" name="y"/>
+    </prop>
+  </viewprops>
+  <viewprops view="4082452667607834798">
+    <prop name="disabled" value="F"/>
+    <prop name="dragSlop" value="3,PX"/>
+  </viewprops>
+  <viewprops view="2085719512096619996">
+    <prop name="disabled" value="F"/>
+  </viewprops>
+  <viewprops view="7099502017543634406">
+    <prop name="color" value="0xFFFFFFFF"/>
+    <prop name="insetBottom" value="1,PX"/>
+    <prop name="insetLeft" value="4,PX"/>
+    <prop name="insetRight" value="4,PX"/>
+    <prop name="insetTop" value="2,PX"/>
+  </viewprops>
+  <viewprops view="6399619520615676263">
+    <prop name="childrenArrange" value="VERTICAL"/>
+    <prop name="matchChildrenHeight" value="T"/>
+    <prop name="matchChildrenWidth" value="T"/>
+  </viewprops>
+  <viewprops view="164880213109468472">
+    <prop name="image">
+      <tplusr name="icon"/>
+    </prop>
+    <prop name="imageColor" style="Light"/>
+    <prop name="matchImageHeight" value="T"/>
+    <prop name="matchImageWidth" value="T"/>
+    <prop name="siteAnimationDistance" value="0"/>
+  </viewprops>
+  <viewprops view="1820181022363494488">
+    <prop name="fontFace" value="GloriaHallelujah"/>
+    <prop name="text">
+      <nodesys node="9256175360394875102" name="formatted"/>
+    </prop>
+    <prop name="textColor" style="Light"/>
+    <prop name="textPaddingLeft" value="7,PX"/>
+    <prop name="textPaddingRight" value="7,PX"/>
+    <prop name="textSize" value="10"/>
+    <prop name="textXAlign" value="CENTER"/>
+    <prop name="textYAlign" value="CENTER"/>
+  </viewprops>
+  <viewprops view="7036711138822283262">
+    <prop name="alignX" value="CENTER"/>
+    <prop name="alignY" value="BOTTOM"/>
+    <prop name="alpha" value="0"/>
+    <prop name="fontFace" value="GloriaHallelujah"/>
+    <prop name="image">
+      <tplusr name="label_image"/>
+    </prop>
+    <prop name="imageColor" style="Light"/>
+    <prop name="matchImageHeight" value="T"/>
+    <prop name="matchImageWidth" value="T"/>
+    <prop name="maxHeight" value="0,PX"/>
+    <prop name="maxWidth" value="0,PX"/>
+    <prop name="text" value="equipped"/>
+    <prop name="textColor" style="Light"/>
+    <prop name="textSize" value="10"/>
+    <prop name="textXAlign" value="CENTER"/>
+    <prop name="textYAlign" value="CENTER"/>
+  </viewprops>
+  <node uid="985535400526005" type="drag_source" x="750" y="216">
+    <sysinput name="view" type="viewref" value="4082452667607834798"/>
+    <sysinput name="drop">
+      <nodesys node="627254000788299417" name="impulse"/>
+    </sysinput>
+    <option name="reset_on_drop" type="bool" value="T"/>
+    <option name="pointer" type="pointer" value="POINTER_ANY"/>
+    <option name="domain" type="ident" value=""/>
+  </node>
+  <node uid="627254000788299417" type="extract_impulse_metadata" x="281" y="534">
+    <input name="index" explicit_type="int">
+      <tplusr name="slot"/>
+    </input>
+    <option name="key" type="ident" value="drag_target"/>
+  </node>
+  <node uid="5999715810530494905" type="toggle" x="284" y="40">
+    <sysinput name="input">
+      <tplusr name="equipped"/>
+    </sysinput>
+  </node>
+  <node uid="9256175360394875102" type="format" x="280" y="300">
+    <input name="name" explicit_type="string">
+      <tplusr name="name"/>
+    </input>
+    <input name="category" explicit_type="string">
+      <tplusr name="category"/>
+    </input>
+    <option name="template" type="string" value="{{name}}
+({{category}})"/>
+  </node>
+  <condition uid="1192461862752573632" name="Equipped">
+    <inputs>
+      <tplusr name="equipped"/>
+    </inputs>
+    <events view="2085719512096619996"/>
+    <viewprops view="7036711138822283262">
+      <prop name="alpha" value="1"/>
+      <prop name="maxHeight" value="30,PX"/>
+      <prop name="maxWidth" value="130,PX"/>
+    </viewprops>
+  </condition>
+  <condition uid="6683339254861904899" feedback="hover" view="2085719512096619996">
+    <events view="2085719512096619996"/>
+    <viewprops view="164880213109468472">
+      <prop name="imageColor" style="Normal"/>
+    </viewprops>
+    <viewprops view="7036711138822283262">
+      <prop name="imageColor" style="Normal"/>
+    </viewprops>
+  </condition>
+  <condition uid="1103271821936305667" feedback="dragging" view="4082452667607834798">
+    <events view="2085719512096619996"/>
+    <viewprops view="0">
+      <prop name="layer" value="1"/>
+    </viewprops>
+    <viewprops view="2085719512096619996">
+      <prop name="disabled" value="T"/>
+    </viewprops>
+  </condition>
+  <condition uid="4176040611067954258" name="Disable Drag">
+    <inputs>
+      <tplusr name="Disable Drag"/>
+    </inputs>
+    <events view="2085719512096619996"/>
+    <viewprops view="4082452667607834798">
+      <prop name="disabled" value="T"/>
+    </viewprops>
+  </condition>
+  <preview>
+    <entry>
+      <prop name="label_image" type="image" value="label3"/>
+      <prop name="slot" type="int" value="1"/>
+      <prop name="name" type="string" value="Item"/>
+      <prop name="equipped" type="bool" value="F"/>
+      <prop name="category" type="string" value="Category"/>
+      <prop name="icon" type="image" value="item1"/>
+    </entry>
+  </preview>
+  <animation uid="6088484060756334968" name="Equip" duration="170">
+    <repeat>
+      <prop type="bool" value="F"/>
+    </repeat>
+    <conditiontrigger uid="1192461862752573632" direction="either"/>
+    <prop view="164880213109468472" name="siteAnimationDistance">
+      <keyframe position="0">
+        <prop value="1"/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+    <prop view="7036711138822283262" name="maxWidth">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+    <prop view="7036711138822283262" name="maxHeight">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+    <prop view="7036711138822283262" name="alpha">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+  </animation>
+  <animation uid="5681222651124510752" name="Color" duration="140">
+    <repeat>
+      <prop type="bool" value="F"/>
+    </repeat>
+    <anyconditiontrigger/>
+    <prop view="164880213109468472" name="imageColor">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+    <prop view="7036711138822283262" name="imageColor">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+  </animation>
+  <metadata preview_w="268" preview_h="226" preview_zoom="1" preview_padding="80" preview_bg_color="4294967295"/>
+</template>

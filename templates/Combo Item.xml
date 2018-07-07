@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template uid="7721000683496027807" name="Combo Item" version="9">
+  <input name="label" type="string" default=""/>
+  <input name="selectSingle" type="impulse"/>
+  <view uid="0" name="Combo Item"/>
+  <events view="0">
+    <pointer pointer="Mouse Left" state="Up" id="0" captures="true">
+      <tplusr name="selectSingle"/>
+    </pointer>
+  </events>
+  <viewprops view="0">
+    <prop name="fadeRight" value="20,PX"/>
+    <prop name="fontFace" value="GloriaHallelujah"/>
+    <prop name="matchTextHeight" value="T"/>
+    <prop name="text">
+      <tplusr name="label"/>
+    </prop>
+    <prop name="textColor" style="Light"/>
+    <prop name="textPaddingBottom" value="16,PX"/>
+    <prop name="textPaddingLeft" value="14,PX"/>
+    <prop name="textPaddingTop" value="5,PX"/>
+    <prop name="textSingleLine" value="T"/>
+    <prop name="textSize" value="14"/>
+    <prop name="textXAlign" value="LEFT"/>
+    <prop name="textYAlign" value="CENTER"/>
+  </viewprops>
+  <condition uid="3648470299489990716" feedback="hover" view="0">
+    <events view="0"/>
+    <viewprops view="0">
+      <prop name="textColor" style="Normal"/>
+    </viewprops>
+  </condition>
+  <preview>
+    <entry>
+      <prop name="label" type="string" value="Combo Item"/>
+    </entry>
+  </preview>
+  <animation uid="5091160383607162690" name="Color" duration="80">
+    <repeat>
+      <prop type="bool" value="F"/>
+    </repeat>
+    <conditiontrigger uid="3648470299489990716" direction="either"/>
+    <prop view="0" name="textColor">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+  </animation>
+  <metadata preview_w="227" preview_h="37" preview_zoom="1" preview_padding="0" preview_bg_color="4294967295"/>
+</template>

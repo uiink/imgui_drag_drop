@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template uid="3425308763445139918" name="Main" version="9">
+  <view uid="0" name="Main">
+    <view uid="8921167777431875364" name="Top">
+      <view uid="6280753084771567848" name="Sort" tpl="4567819938184973432" tplName="Combo Box"/>
+      <view uid="9189219442879326138" name="Search" tpl="2039200926407185736" tplName="Search"/>
+    </view>
+    <view uid="2678106376537584846" name="Slots" listTpl="5524347983385913822" tplName="Slot"/>
+  </view>
+  <inlineviewprops view="6280753084771567848">
+    <prop name="items">
+      <nodesys node="1796598375305229983" name="entries"/>
+    </prop>
+  </inlineviewprops>
+  <inlineviewprops view="9189219442879326138">
+    <prop name="search">
+      <nodesys node="9974274407464300106" name="value"/>
+    </prop>
+  </inlineviewprops>
+  <inlineviewprops view="2678106376537584846">
+    <prop name="items">
+      <nodesys node="7856270859210973862" name="list"/>
+    </prop>
+    <prop name="sorted">
+      <nodesys node="7324479413677761926" name="OR"/>
+    </prop>
+  </inlineviewprops>
+  <viewprops view="0">
+    <prop name="childrenArrange" value="VERTICAL"/>
+    <prop name="color" value="0xFFFFFFFF"/>
+    <prop name="paddingBottom" value="20,PX"/>
+    <prop name="paddingLeft" value="20,PX"/>
+    <prop name="paddingRight" value="20,PX"/>
+  </viewprops>
+  <viewprops view="8921167777431875364">
+    <prop name="childrenArrange" value="HORIZONTAL"/>
+    <prop name="childrenXSpacing" value="20,PX"/>
+    <prop name="childrenYSpacing" value="20,PX"/>
+    <prop name="matchChildrenHeight" value="T"/>
+    <prop name="paddingBottom" value="15,PX"/>
+    <prop name="paddingTop" value="23,PX"/>
+  </viewprops>
+  <viewprops view="2678106376537584846">
+    <prop name="childrenArrange" value="WRAP"/>
+    <prop name="childrenXSpacing" value="21,PX"/>
+    <prop name="childrenYSpacing" value="21,PX"/>
+    <prop name="list">
+      <nodeusr node="7935691207359178634" name="slots"/>
+    </prop>
+    <prop name="paddingTop" value="3,PX"/>
+  </viewprops>
+  <node uid="294935776515140166" type="sort" x="795" y="477">
+    <sysinput name="list">
+      <nodesys node="7856270859210973862" name="list"/>
+    </sysinput>
+    <option name="reverse" type="bool" value="F"/>
+    <option name="field" type="ident" value="name"/>
+  </node>
+  <node uid="1796598375305229983" type="data" x="416" y="59">
+    <entries>
+      <entry>
+        <prop name="selected" type="bool" value="T"/>
+        <prop name="label" type="string" value="No Sorting"/>
+        <prop name="selectSingle"/>
+      </entry>
+      <entry>
+        <prop name="selected">
+          <nodesys node="2975702681836343872" name="value"/>
+        </prop>
+        <prop name="label" type="string" value="Sort by Name"/>
+        <prop name="selectSingle"/>
+      </entry>
+      <entry>
+        <prop name="selected">
+          <nodesys node="6905123345244794895" name="value"/>
+        </prop>
+        <prop name="label" type="string" value="Sort by Category"/>
+        <prop name="selectSingle"/>
+      </entry>
+    </entries>
+  </node>
+  <node uid="2975702681836343872" type="value" x="34" y="236">
+    <sysinput name="value" type="bool" value="F"/>
+  </node>
+  <node uid="3387580280917890808" type="sort" x="797" y="655">
+    <sysinput name="list">
+      <nodesys node="7856270859210973862" name="list"/>
+    </sysinput>
+    <option name="reverse" type="bool" value="F"/>
+    <option name="field" type="ident" value="category"/>
+  </node>
+  <node uid="6905123345244794895" type="value" x="36" y="332">
+    <sysinput name="value" type="bool" value="F"/>
+  </node>
+  <node uid="7324479413677761926" type="or" x="300" y="363">
+    <sysinput name="A">
+      <nodesys node="2975702681836343872" name="value"/>
+    </sysinput>
+    <sysinput name="B">
+      <nodesys node="6905123345244794895" name="value"/>
+    </sysinput>
+  </node>
+  <node uid="7856270859210973862" type="map" x="432" y="491">
+    <tplref tpl="5491785394352992306" name="Filter Search"/>
+    <input name="search">
+      <nodesys node="9974274407464300106" name="value"/>
+    </input>
+    <sysinput name="list">
+      <nodeusr node="7935691207359178634" name="items"/>
+    </sysinput>
+    <option name="pass_data_through" type="bool" value="T"/>
+  </node>
+  <node uid="7935691207359178634" type="global_source" x="56" y="468">
+    <output name="slots"/>
+    <output name="items"/>
+    <entries>
+      <entry>
+        <entries name="slots">
+          <entry>
+            <prop name="icon" type="image" value="box5"/>
+          </entry>
+          <entry>
+            <prop name="icon" type="image" value="box2"/>
+          </entry>
+          <entry>
+            <prop name="icon" type="image" value="box3"/>
+          </entry>
+          <entry>
+            <prop name="icon" type="image" value="box2"/>
+          </entry>
+          <entry>
+            <prop name="icon" type="image" value="box4"/>
+          </entry>
+        </entries>
+        <entries name="items">
+          <entry>
+            <prop name="label_image" type="image" value="label3"/>
+            <prop name="slot" type="int" value="2"/>
+            <prop name="name" type="string" value="Item"/>
+            <prop name="equipped" type="bool" value="T"/>
+            <prop name="category" type="string" value="cat1"/>
+            <prop name="icon" type="image" value="item1"/>
+          </entry>
+          <entry>
+            <prop name="label_image" type="image" value="label2"/>
+            <prop name="slot" type="int" value="4"/>
+            <prop name="name" type="string" value="Other Item"/>
+            <prop name="category" type="string" value="cat2"/>
+            <prop name="icon" type="image" value="item2"/>
+          </entry>
+        </entries>
+      </entry>
+    </entries>
+    <option name="source_name" type="ident" value="main"/>
+  </node>
+  <node uid="9974274407464300106" type="value" x="172" y="650">
+    <sysinput name="value" type="string" value=""/>
+  </node>
+  <condition uid="5342047368383090293" name="Sort by Name">
+    <inputs>
+      <nodesys node="2975702681836343872" name="value"/>
+    </inputs>
+    <inlineviewprops view="2678106376537584846">
+      <prop name="items">
+        <nodesys node="294935776515140166" name="list"/>
+      </prop>
+    </inlineviewprops>
+  </condition>
+  <condition uid="4046775110737247824" name="Sort by Category">
+    <inputs>
+      <nodesys node="6905123345244794895" name="value"/>
+    </inputs>
+    <inlineviewprops view="2678106376537584846">
+      <prop name="items">
+        <nodesys node="3387580280917890808" name="list"/>
+      </prop>
+    </inlineviewprops>
+  </condition>
+  <preview/>
+  <animation uid="6063161831565256399" name="New Animation" duration="500">
+    <repeat>
+      <prop type="bool" value="F"/>
+    </repeat>
+    <anyconditiontrigger/>
+  </animation>
+  <metadata preview_w="782" preview_h="360" preview_zoom="1" preview_padding="0" preview_bg_color="0"/>
+</template>

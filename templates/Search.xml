@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template uid="2039200926407185736" name="Search" version="9">
+  <input name="search" type="string" default=""/>
+  <view uid="0" name="Search">
+    <view uid="5793095236454841782" name="text"/>
+    <view uid="7439493700014728436" name="Icon"/>
+  </view>
+  <viewprops view="0">
+    <prop name="image" value="search"/>
+    <prop name="imageColor" style="Light"/>
+    <prop name="matchImageHeight" value="T"/>
+    <prop name="matchImageWidth" value="T"/>
+  </viewprops>
+  <viewprops view="5793095236454841782">
+    <prop name="editable" value="T"/>
+    <prop name="focusPolicy" value="ALWAYS"/>
+    <prop name="fontFace" value="GloriaHallelujah"/>
+    <prop name="selectTextOnFocus" value="ALWAYS"/>
+    <prop name="selectedTextBgColor" style="Normal"/>
+    <prop name="selectedTextColor" value="0xFFFFFFFF"/>
+    <prop name="text">
+      <tplusr name="search"/>
+    </prop>
+    <prop name="textColor" style="Light"/>
+    <prop name="textPaddingBottom" value="0,PX"/>
+    <prop name="textPaddingLeft" value="12,PX"/>
+    <prop name="textPaddingTop" value="2,PX"/>
+    <prop name="textSingleLine" value="T"/>
+    <prop name="textSize" value="13"/>
+    <prop name="textXAlign" value="LEFT"/>
+    <prop name="textYAlign" value="CENTER"/>
+  </viewprops>
+  <viewprops view="7439493700014728436">
+    <prop name="alignX" value="RIGHT"/>
+    <prop name="alignY" value="CENTER"/>
+    <prop name="image" value="search_icon"/>
+    <prop name="imageColor" style="Light"/>
+    <prop name="insetRight" value="10,PX"/>
+    <prop name="insetTop" value="-3,PX"/>
+    <prop name="matchImageHeight" value="T"/>
+    <prop name="matchImageWidth" value="T"/>
+  </viewprops>
+  <condition uid="7618610078019886386" feedback="focus" view="5793095236454841782">
+    <viewprops view="0">
+      <prop name="imageColor" style="Normal"/>
+    </viewprops>
+    <viewprops view="5793095236454841782">
+      <prop name="selectTextOnFocus" value="NEVER"/>
+      <prop name="textColor" style="Normal"/>
+    </viewprops>
+    <viewprops view="7439493700014728436">
+      <prop name="imageColor" style="Normal"/>
+    </viewprops>
+  </condition>
+  <preview>
+    <entry>
+      <prop name="search" type="string" value="Search Term"/>
+    </entry>
+  </preview>
+  <animation uid="4653792396256886292" name="Color" duration="140">
+    <repeat>
+      <prop type="bool" value="F"/>
+    </repeat>
+    <conditiontrigger uid="7618610078019886386" direction="either"/>
+    <prop view="0" name="imageColor">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+    <prop view="5793095236454841782" name="textColor">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+    <prop view="7439493700014728436" name="imageColor">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+  </animation>
+  <metadata preview_w="700" preview_h="600" preview_zoom="1" preview_padding="20" preview_bg_color="4294967295"/>
+</template>

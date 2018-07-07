@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template uid="4567819938184973432" name="Combo Box" version="9">
+  <input name="items" type="list"/>
+  <view uid="0" name="Combo Box">
+    <view uid="5057553346316915152" name="Selected Label"/>
+    <view uid="6076570187834764346" name="Arrow"/>
+  </view>
+  <events view="0">
+    <pointer pointer="Mouse Left" state="Down" id="0" captures="true">
+      <nodesys node="4246626724975086015" name="show"/>
+    </pointer>
+  </events>
+  <viewprops view="0">
+    <prop name="image" value="combo_box"/>
+    <prop name="imageColor" style="Light"/>
+    <prop name="matchImageHeight" value="T"/>
+    <prop name="matchImageWidth" value="T"/>
+    <prop name="paddingBottom" value="5,PX"/>
+    <prop name="paddingLeft" value="14,PX"/>
+    <prop name="paddingRight" value="13,PX"/>
+    <prop name="paddingTop" value="7,PX"/>
+  </viewprops>
+  <viewprops view="5057553346316915152">
+    <prop name="fadeRight" value="30,PX"/>
+    <prop name="fontFace" value="GloriaHallelujah"/>
+    <prop name="insetRight" value="30,PX"/>
+    <prop name="text">
+      <nodeusr node="1343780394096792371" name="label"/>
+    </prop>
+    <prop name="textColor" style="Light"/>
+    <prop name="textPaddingTop" value="-3,PX"/>
+    <prop name="textSingleLine" value="T"/>
+    <prop name="textSize" value="14"/>
+    <prop name="textXAlign" value="LEFT"/>
+    <prop name="textYAlign" value="CENTER"/>
+  </viewprops>
+  <viewprops view="6076570187834764346">
+    <prop name="alignX" value="RIGHT"/>
+    <prop name="alignY" value="CENTER"/>
+    <prop name="image" value="down_arrow"/>
+    <prop name="imageColor" style="Light"/>
+    <prop name="matchImageHeight" value="T"/>
+    <prop name="matchImageWidth" value="T"/>
+    <prop name="translateY" value="2,PX"/>
+  </viewprops>
+  <node uid="1343780394096792371" type="extract" x="539" y="120">
+    <sysinput name="list">
+      <nodesys node="3108265952696727945" name="selected"/>
+    </sysinput>
+    <output name="label"/>
+    <option name="index" type="int" value="1"/>
+  </node>
+  <node uid="3108265952696727945" type="selector" x="230" y="112">
+    <sysinput name="onSelect">
+      <nodesys node="5453700246116809940" name="back"/>
+    </sysinput>
+    <sysinput name="list">
+      <tplusr name="items"/>
+    </sysinput>
+  </node>
+  <node uid="4246626724975086015" type="scene" x="562" y="313">
+    <tplref tpl="615573198993691503" variant="" name="Combo Popup"/>
+    <input name="anchor" type="viewref" value="0"/>
+    <input name="items">
+      <nodesys node="3108265952696727945" name="all"/>
+    </input>
+    <sysinput name="show"/>
+    <sysinput name="hide"/>
+    <sysinput name="visible"/>
+    <option name="focus_exclusive" type="bool" value="T"/>
+    <option name="captures_focus" type="bool" value="T"/>
+    <option name="exclusive" type="bool" value="F"/>
+  </node>
+  <node uid="5453700246116809940" type="scenestack" x="71" y="198">
+    <sysinput name="removeSelf"/>
+    <sysinput name="back"/>
+  </node>
+  <condition uid="1124852013848275036" feedback="hover" view="0">
+    <events view="0"/>
+    <viewprops view="0">
+      <prop name="imageColor" style="Normal"/>
+    </viewprops>
+    <viewprops view="6076570187834764346">
+      <prop name="imageColor" style="Normal"/>
+    </viewprops>
+  </condition>
+  <preview>
+    <entry>
+      <entries name="items">
+        <entry>
+          <prop name="selected" type="bool" value="T"/>
+          <prop name="label" type="string" value="Option One"/>
+        </entry>
+        <entry>
+          <prop name="label" type="string" value="Option Two"/>
+        </entry>
+      </entries>
+    </entry>
+  </preview>
+  <animation uid="535545909266755879" name="Color" duration="140">
+    <repeat>
+      <prop type="bool" value="F"/>
+    </repeat>
+    <conditiontrigger uid="1124852013848275036" direction="either"/>
+    <prop view="0" name="imageColor">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+    <prop view="6076570187834764346" name="imageColor">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+  </animation>
+  <metadata preview_w="362" preview_h="167" preview_zoom="1" preview_padding="20" preview_bg_color="4294967295"/>
+</template>

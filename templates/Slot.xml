@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template uid="5524347983385913822" name="Slot" version="9">
+  <input name="icon" type="image" default=""/>
+  <input name="index" type="int" default="0"/>
+  <input name="items" type="list"/>
+  <input name="sorted" type="bool" default="F"/>
+  <view uid="0" name="Slot">
+    <view uid="848449086873786970" name="Drag Target"/>
+    <view uid="7570761140834601206" name="Item" listTpl="1156732126394968629" tplName="Item"/>
+  </view>
+  <inlineviewprops view="7570761140834601206">
+    <prop name="Disable Drag" type="bool" value="F"/>
+  </inlineviewprops>
+  <viewprops view="0">
+    <prop name="image">
+      <tplusr name="icon"/>
+    </prop>
+    <prop name="imageColor" value="0xA0D7FEFF"/>
+    <prop name="matchImageHeight" value="T"/>
+    <prop name="matchImageWidth" value="T"/>
+  </viewprops>
+  <viewprops view="848449086873786970">
+    <prop name="discard" value="F"/>
+    <prop name="insetBottom" value="-10,PX"/>
+    <prop name="insetLeft" value="-10,PX"/>
+    <prop name="insetRight" value="-10,PX"/>
+    <prop name="insetTop" value="-10,PX"/>
+    <prop name="layer" value="2"/>
+  </viewprops>
+  <viewprops view="7570761140834601206">
+    <prop name="alignX" value="CENTER"/>
+    <prop name="alignY" value="CENTER"/>
+    <prop name="list">
+      <nodesys node="7720748678856152899" name="filtered"/>
+    </prop>
+    <prop name="matchChildrenHeight" value="T"/>
+    <prop name="matchChildrenWidth" value="T"/>
+  </viewprops>
+  <node uid="3979252203954229972" type="filter" x="700" y="438">
+    <sysinput name="list">
+      <nodesys node="5875483019699701303" name="drag_sources"/>
+    </sysinput>
+    <sysinput name="equal_to" type="bool" explicit_type="bool" value="T"/>
+    <option name="filter" type="ident" value="intersects"/>
+  </node>
+  <node uid="5875483019699701303" type="drag_target" x="449" y="410">
+    <input name="index" explicit_type="int">
+      <tplusr name="index"/>
+    </input>
+    <sysinput name="view" type="viewref" value="848449086873786970"/>
+    <sysinput name="drop"/>
+    <option name="domain" type="ident" value=""/>
+  </node>
+  <node uid="7246346676458356214" type="slice" x="341" y="213">
+    <sysinput name="list">
+      <tplusr name="items"/>
+    </sysinput>
+    <sysinput name="from">
+      <tplusr name="index"/>
+    </sysinput>
+    <sysinput name="to">
+      <tplusr name="index"/>
+    </sysinput>
+  </node>
+  <node uid="7720748678856152899" type="filter" x="338" y="51">
+    <sysinput name="list">
+      <tplusr name="items"/>
+    </sysinput>
+    <sysinput name="equal_to" explicit_type="int">
+      <tplusr name="index"/>
+    </sysinput>
+    <option name="filter" type="ident" value="slot"/>
+  </node>
+  <comment uid="7897131104551620433" x="561" y="256" w="252" h="91"><![CDATA[When sorting, we just match indexes and assume items have been sorted correctly. Otherwise we find the item at this slot index.]]></comment>
+  <condition uid="1013222528690162062" name="sorted">
+    <inputs>
+      <tplusr name="sorted"/>
+    </inputs>
+    <inlineviewprops view="7570761140834601206">
+      <prop name="Disable Drag" type="bool" value="T"/>
+    </inlineviewprops>
+    <viewprops view="848449086873786970">
+      <prop name="discard" value="T"/>
+    </viewprops>
+    <viewprops view="7570761140834601206">
+      <prop name="list">
+        <nodesys node="7246346676458356214" name="list"/>
+      </prop>
+    </viewprops>
+  </condition>
+  <condition uid="4675959898718872108" name="has item">
+    <inputs>
+      <nodesys node="7720748678856152899" name="filtered"/>
+    </inputs>
+    <viewprops view="848449086873786970">
+      <prop name="discard" value="T"/>
+    </viewprops>
+  </condition>
+  <condition uid="4962591717696575136" name="Drag Target">
+    <inputs>
+      <nodesys node="3979252203954229972" name="filtered"/>
+    </inputs>
+    <viewprops view="0">
+      <prop name="imageColor" style="Normal"/>
+    </viewprops>
+  </condition>
+  <preview>
+    <entry>
+      <prop name="index" type="int" value="1"/>
+    </entry>
+  </preview>
+  <animation uid="5541409029823504087" name="Color" duration="200">
+    <repeat>
+      <prop type="bool" value="F"/>
+    </repeat>
+    <anyconditiontrigger/>
+    <prop view="0" name="imageColor">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+  </animation>
+  <metadata preview_w="152" preview_h="155" preview_zoom="1" preview_padding="20" preview_bg_color="4294967295"/>
+</template>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template uid="615573198993691503" name="Combo Popup" version="9">
+  <input name="anchor" type="viewref" default=""/>
+  <input name="items" type="list"/>
+  <view uid="0" name="Combo Popup">
+    <view uid="2282944636970214518" name="Body">
+      <view uid="2024637421981678164" name="Bg"/>
+      <view uid="4119087302388753071" name="Border"/>
+      <view uid="2709215465143410070" name="Scroll Container">
+        <view uid="9150616953818885003" name="Items" listTpl="7721000683496027807" tplName="Combo Item"/>
+      </view>
+    </view>
+  </view>
+  <events view="0">
+    <pointer pointer="Any" state="Down" id="0" captures="true">
+      <nodesys node="4522562685424648711" name="removeSelf"/>
+    </pointer>
+  </events>
+  <viewprops view="0">
+    <prop name="blockPointerEvents" value="T"/>
+  </viewprops>
+  <viewprops view="2282944636970214518">
+    <prop name="alpha" value="1"/>
+    <prop name="anchorLeftAlign" value="LEFT"/>
+    <prop name="anchorLeftView">
+      <tplusr name="anchor"/>
+    </prop>
+    <prop name="anchorTopAlign" value="TOP"/>
+    <prop name="anchorTopView">
+      <tplusr name="anchor"/>
+    </prop>
+    <prop name="blockPointerEvents" value="T"/>
+    <prop name="matchChildrenHeight" value="T"/>
+    <prop name="matchChildrenWidth" value="T"/>
+    <prop name="scale" value="1"/>
+    <prop name="translateY" value="0,PX"/>
+  </viewprops>
+  <viewprops view="2024637421981678164">
+    <prop name="alignX" value="CENTER"/>
+    <prop name="alignY" value="CENTER"/>
+    <prop name="image" value="combo_popup_mask"/>
+    <prop name="matchImageHeight" value="T"/>
+    <prop name="matchImageWidth" value="T"/>
+  </viewprops>
+  <viewprops view="4119087302388753071">
+    <prop name="image" value="combo_popup"/>
+    <prop name="imageColor" style="Light"/>
+    <prop name="matchImageHeight" value="T"/>
+    <prop name="matchImageWidth" value="T"/>
+  </viewprops>
+  <viewprops view="2709215465143410070">
+    <prop name="flingDistanceY" value="1000,PX"/>
+    <prop name="scrollingY" value="T"/>
+  </viewprops>
+  <viewprops view="9150616953818885003">
+    <prop name="childrenArrange" value="VERTICAL"/>
+    <prop name="clipToParent" value="T"/>
+    <prop name="list">
+      <tplusr name="items"/>
+    </prop>
+    <prop name="paddingBottom" value="10,PX"/>
+    <prop name="paddingLeft" value="10,PX"/>
+    <prop name="paddingRight" value="10,PX"/>
+    <prop name="paddingTop" value="17,PX"/>
+  </viewprops>
+  <node uid="4522562685424648711" type="scenestack" x="98" y="178">
+    <sysinput name="removeSelf"/>
+    <sysinput name="back"/>
+  </node>
+  <condition uid="9822440671106568513" feedback="created">
+    <events view="0"/>
+    <viewprops view="2282944636970214518">
+      <prop name="alpha" value="0"/>
+      <prop name="scale" value="0.8"/>
+      <prop name="translateY" value="-20,PX"/>
+    </viewprops>
+  </condition>
+  <condition uid="7928901170079089402" feedback="destroyed">
+    <events view="0"/>
+    <viewprops view="2282944636970214518">
+      <prop name="alpha" value="0"/>
+      <prop name="scale" value="0.8"/>
+      <prop name="translateY" value="-20,PX"/>
+    </viewprops>
+  </condition>
+  <preview>
+    <entry>
+      <entries name="items">
+        <entry>
+          <prop name="label" type="string" value="Item 1"/>
+        </entry>
+        <entry>
+          <prop name="label" type="string" value="Item 2"/>
+        </entry>
+        <entry>
+          <prop name="label" type="string" value="Item 3"/>
+        </entry>
+      </entries>
+    </entry>
+  </preview>
+  <animation uid="4007357000584686211" name="In Out" duration="200">
+    <repeat>
+      <prop type="bool" value="F"/>
+    </repeat>
+    <createtrigger/>
+    <destroytrigger/>
+    <prop view="2282944636970214518" name="translateY">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+    <prop view="2282944636970214518" name="scale">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+    <prop view="2282944636970214518" name="alpha">
+      <keyframe position="0">
+        <start/>
+      </keyframe>
+      <keyframe position="1" curve="Ease">
+        <end/>
+      </keyframe>
+    </prop>
+  </animation>
+  <metadata preview_w="259" preview_h="401" preview_zoom="1" preview_padding="20" preview_bg_color="0"/>
+</template>
